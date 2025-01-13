@@ -21,6 +21,13 @@ namespace RenderEngine
 
         glm::vec3 scale;
         glm::vec3 position;
+        //Axis swap compared to blender
+        //      This program
+        //Z+ -> Y+  
+        //Y+ -> Z-
+        //X+ -> X+
+
+
         glm::vec3 eulerRotation;
 
         void render(camera& camObj, Shader& shaderObj, GLFWwindow* window);

@@ -117,6 +117,10 @@ void APIENTRY GLDebugMessageCallback(GLenum source, GLenum type, GLuint id,
         printf("%d: %s of %s severity, raised from %s: %s\n",
             id, _type, _severity, _source, msg);
     }
+    if (_severity == "HIGH")
+    {
+        throw;
+    }
     return ;
 }
 
@@ -166,6 +170,7 @@ namespace RenderEngine
 
         glfwMakeContextCurrent(windowInstance);
         *window = windowInstance;
+        
 
         return true;
     }

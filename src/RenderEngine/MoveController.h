@@ -11,7 +11,10 @@ namespace RenderEngine
         float lastY;
         float yaw;
         float pitch;
+        
+
         bool mouseCaptured;
+        float cameraSpeed;
         float sensitivity;
 
         MoveController();

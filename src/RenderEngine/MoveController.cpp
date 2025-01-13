@@ -60,7 +60,6 @@ namespace RenderEngine
             mouseCaptured = false;
         }
 
-        const float cameraSpeed = 1; // adjust accordingly
         if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
             camObj.position += glm::normalize(camObj.lookVec) * cameraSpeed * deltaTime;
         if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
@@ -75,7 +74,7 @@ namespace RenderEngine
             camObj.position -= glm::normalize(camObj.up)*cameraSpeed*deltaTime;
     }
     MoveController::MoveController()
-    :   lastX(0), lastY(0), yaw(0), pitch(0), mouseCaptured(true), sensitivity(0.25)
+    :   lastX(0), lastY(0), yaw(0), pitch(0), mouseCaptured(true), sensitivity(0.25), cameraSpeed(1)
     {
 
     }

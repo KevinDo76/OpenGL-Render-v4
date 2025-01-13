@@ -25,20 +25,19 @@ namespace RenderEngine
         int width, height;
         glfwGetWindowSize(window, &width, &height);
 
-        eulerRotation.y = sin(glfwGetTime())*260;
-
         glm::mat4 projection;
         projection = glm::perspective(glm::radians(camObj.fov), (float)width / (float)height, 0.1f, 100.0f);
 
+
         glm::mat4 model = glm::mat4(1.0f);
-        model = glm::scale(model, scale);
+        //
+        model = glm::translate(model, position);
         //XYZ EULER
         model = glm::rotate(model, glm::radians((float)eulerRotation.x), glm::vec3(1,0,0)); //rotate X
         model = glm::rotate(model, glm::radians((float)eulerRotation.y), glm::vec3(0,1,0)); //rotate Y
         model = glm::rotate(model, glm::radians((float)eulerRotation.z), glm::vec3(0,0,1)); //rotate Z
-        //
-        model = glm::translate(model, position);
         //model = glm::rotate(model, glm::radians((float)std::sin(glfwGetTime())*200), glm::vec3(2.0f, 0.0f, 1.0f)); 
+        model = glm::scale(model, scale);        
 
         glm::mat4 view;
         camObj.getViewMatrix(view);

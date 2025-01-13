@@ -21,6 +21,13 @@ set(sources src/main.cpp
             src/RenderEngine/Camera.cpp
             src/RenderEngine/MoveController.cpp)
 
+set (imgui lib/imgui-master/imgui.cpp
+           lib/imgui-master/imgui_draw.cpp
+           lib/imgui-master/imgui_tables.cpp
+           lib/imgui-master/imgui_widgets.cpp
+           lib/imgui-master/backends/imgui_impl_glfw.cpp
+           lib/imgui-master/backends/imgui_impl_opengl3.cpp)
+           
 add_subdirectory(lib/glfw)
 
 include_directories(lib/glad/include)
@@ -28,9 +35,10 @@ include_directories(lib/stb_image)
 include_directories(lib/glfw/include)
 include_directories(lib/glfw/deps/glad)
 include_directories(lib/glm-master/)
+include_directories(lib/imgui-master/)
 
 
-add_executable(openglProject ${sources} ${GLAD} ${GLFW})
+add_executable(openglProject ${sources} ${imgui} ${GLAD} ${GLFW})
 
 
 target_link_libraries(openglProject glfw GL X11 pthread)
